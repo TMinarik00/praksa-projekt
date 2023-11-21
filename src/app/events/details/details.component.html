@@ -1,0 +1,74 @@
+<div class="d-flex justify-content-center mx-8">
+  <form [formGroup]="eventForm" class="w-100 form-border">
+    <!-- Header -->
+    <h1 *ngIf="readonly">Event Details</h1>
+    <h1 *ngIf="!readonly">Edit Event</h1>
+
+    <!-- Event name -->
+    <div class="my-5">
+      <label>Event Name</label>
+      <input
+        type="text"
+        formControlName="event_name"
+        class="form-control"
+        [readonly]="readonly"
+      />
+    </div>
+
+    <!-- Event Start Time -->
+    <div class="my-5">
+      <label>Event Start TIme</label>
+      <input
+        type="text"
+        formControlName="event_start_time"
+        class="form-control"
+        [readonly]="readonly"
+      />
+    </div>
+
+    <!-- Competition Name -->
+    <div class="my-5">
+      <label>Competition Name</label>
+      <!-- Competition Details -->
+      <div *ngIf="readonly">
+        <input
+          type="text"
+          formControlName="competition_id"
+          class="form-control"
+          [readonly]="readonly"
+        />
+      </div>
+      <!-- Edit Competition -->
+      <div *ngIf="!readonly">
+        <select
+          type="text"
+          formControlName="competition_id"
+          class="form-select"
+          aria-label="Default select"
+        >
+          <option value="">Select your option</option>
+          <option
+            value="competition"
+            *ngFor="let competition of competitions"
+            [ngValue]="competition.id"
+          >
+            {{ competition.naziv }}
+          </option>
+        </select>
+      </div>
+    </div>
+  </form>
+</div>
+<!-- Edit/Save Buttons -->
+<div class="d-flex justify-content-center my-5">
+  <button class="btn btn-lg btn-warning" *ngIf="readonly" (click)="editEvent()">
+    Edit
+  </button>
+  <button
+    class="btn btn-lg btn-success"
+    *ngIf="!readonly"
+    (click)="updateEvent()"
+  >
+    Save
+  </button>
+</div>

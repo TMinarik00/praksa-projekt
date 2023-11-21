@@ -1,0 +1,75 @@
+<div class="d-flex justify-content-center mx-8">
+  <form [formGroup]="teamForm" class="w-100 bg-form">
+    <h1 class="my-4">Create Team</h1>
+    <div>
+      <label>Team Name</label>
+      <input type="text" formControlName="teamname" class="form-control" />
+    </div>
+
+    <div class="d-flex justify-content-between my-5">
+      <div class="col-6">
+        <label class="mb-1">City Name</label>
+        <input type="text" formControlName="city" class="form-control" />
+      </div>
+      <div class="col-5">
+        <label>Foundation Year</label>
+        <input
+          type="number"
+          formControlName="foundedyear"
+          class="form-control"
+        />
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-between my-5">
+      <div class="col-6">
+        <label>Country Name</label>
+        <select
+          type="text"
+          formControlName="countryid"
+          class="form-select"
+          aria-label="Default select"
+        >
+          <option>Select your option</option>
+          <option
+            *ngFor="let country of countries"
+            value="country"
+            class="mh-100"
+            [ngValue]="country.countryId"
+          >
+            {{ country.countryName }}
+          </option>
+        </select>
+      </div>
+
+      <div class="col-5">
+        <label>Sport Name</label>
+        <select
+          type="text"
+          formControlName="sportid"
+          class="form-select"
+          aria-label="Default select"
+        >
+          <option>Select your option</option>
+          <option
+            *ngFor="let sport of sports"
+            value="sport"
+            [ngValue]="sport.sportsId"
+            class=""
+          >
+            {{ sport.name }}
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="my-3 float-end">
+      <button
+        class="btn btn-primary"
+        (click)="createTeam()"
+        [disabled]="teamForm.invalid"
+      >
+        Create Team
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,13 @@
+<!-- Header -->
+<div class="d-flex justify-content-between mt-4 mx-5">
+  <h2>Events Table</h2>
+  <button class="btn btn-primary" (click)="onCreate()">Add Event</button>
+</div>
+
+<!-- Table -->
+<app-table
+  [headArr]="headItems"
+  [contentArr]="events"
+  (detailsBtn)="getDetails($event)"
+  (deleteBtn)="deleteItem($event)"
+></app-table>

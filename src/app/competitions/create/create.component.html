@@ -1,0 +1,59 @@
+<div class="d-flex justify-content-center mx-8">
+  <form [formGroup]="competitionForm" class="w-100 bg-form">
+    <h1 class="my-4">Create Competition</h1>
+    <div>
+      <label>Competition Name</label>
+      <input type="text" formControlName="naziv" class="form-control" />
+    </div>
+
+    <div class="my-5">
+      <label>Sport Name</label>
+      <select
+        type="text"
+        formControlName="sportid"
+        class="form-select"
+        aria-label="Default select"
+      >
+        <option>Select your option</option>
+        <option
+          *ngFor="let sport of sports"
+          value="sport"
+          [ngValue]="sport.sportsId"
+          class=""
+        >
+          {{ sport.name }}
+        </option>
+      </select>
+    </div>
+
+    <div class="my-5">
+      <label>Country Name</label>
+      <select
+        type="text"
+        formControlName="countryid"
+        class="form-select"
+        aria-label="Default select"
+      >
+        <option>Select your option</option>
+        <option
+          *ngFor="let country of countries"
+          value="country"
+          class="mh-100"
+          [ngValue]="country.countryId"
+        >
+          {{ country.countryName }}
+        </option>
+      </select>
+    </div>
+
+    <div class="my-3 float-end">
+      <button
+        class="btn btn-primary"
+        (click)="createCompetition()"
+        [disabled]="competitionForm.invalid"
+      >
+        Create Team
+      </button>
+    </div>
+  </form>
+</div>

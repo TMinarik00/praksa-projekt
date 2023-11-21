@@ -1,0 +1,11 @@
+<div class="table-scroll">
+  <table class="w-100">
+    <thead>
+      <tr *ngFor="let country of countries" class="table-item">
+        <td class="my-3 border-bottom p-2 text--center">
+          <span (click)="filter(country)">{{ country.countryName }}</span>
+        </td>
+      </tr>
+    </thead>
+  </table>
+</div>

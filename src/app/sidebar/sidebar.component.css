@@ -1,0 +1,31 @@
+.table-scroll {
+  overflow-y: auto;
+  height: 100%;
+}
+
+.border-bottom {
+  border-bottom: 1px solid white;
+}
+
+.table-item {
+  color: white;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.table-item:hover {
+  background-color: white;
+  color: rgb(33, 37, 41);
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.active-item {
+  background-color: white;
+  color: rgb(33, 37, 41);
+  font-weight: 500;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}

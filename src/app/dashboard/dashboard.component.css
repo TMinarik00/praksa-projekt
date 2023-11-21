@@ -1,0 +1,22 @@
+.dashboard-item {
+  font-size: 18px;
+  font-weight: 400;
+  height: 100%;
+}
+
+.dashboard-item:hover {
+  background-color: rgb(235, 100, 100);
+  font-weight: 500;
+}
+
+.border-b {
+  border-bottom: 1px white solid;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.p-10px {
+  padding: 10px !important;
+}

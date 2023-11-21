@@ -1,0 +1,116 @@
+<div class="d-flex justify-content-center mx-8">
+  <form [formGroup]="teamForm" class="w-100 form-border">
+    <h1 *ngIf="readonly">Team Details</h1>
+    <h1 *ngIf="!readonly">Edit Team</h1>
+    <div class="my-5">
+      <label>Team Name</label>
+      <input
+        type="text"
+        formControlName="teamName"
+        class="form-control"
+        [readonly]="readonly"
+      />
+    </div>
+
+    <div class="d-flex justify-content-between my-5">
+      <div class="col-6">
+        <label>City Name</label>
+        <input
+          type="text"
+          formControlName="city"
+          class="form-control"
+          [readonly]="readonly"
+        />
+      </div>
+      <div class="col-5">
+        <label>Foundation Year</label>
+        <input
+          type="text"
+          formControlName="foundedYear"
+          class="form-control"
+          [readonly]="readonly"
+        />
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-between my-5">
+      <!-- COUNTRY -->
+      <!-- COUNTRY DETAILS -->
+      <div *ngIf="readonly" class="col-6">
+        <label>Country Name</label>
+        <input
+          type="text"
+          formControlName="countryId"
+          class="form-control"
+          [readonly]="readonly"
+        />
+      </div>
+      <!-- COUNTRY EDIT -->
+      <div *ngIf="!readonly" class="col-6">
+        <label>Country Name</label>
+        <select
+          type="text"
+          formControlName="countryId"
+          class="form-select"
+          aria-label="Default select"
+        >
+          <option value="">Select your option</option>
+          <option
+            *ngFor="let country of countries"
+            value="country"
+            [ngValue]="country.countryId"
+          >
+            {{ country.countryName }}
+          </option>
+        </select>
+      </div>
+      <!-- SPORT -->
+      <!-- SPORT DETAILS-->
+      <div *ngIf="readonly" class="col-5">
+        <label>Sport Name</label>
+        <input
+          type="text"
+          formControlName="sportid"
+          class="form-control"
+          [readonly]="readonly"
+        />
+      </div>
+      <!-- SPORT EDIT-->
+      <div *ngIf="!readonly" class="col-5">
+        <label>Sport Name</label>
+        <select
+          type="text"
+          formControlName="sportid"
+          class="form-select"
+          aria-label="Default select"
+        >
+          <option value="">Select your option</option>
+          <option
+            *ngFor="let sport of sports"
+            value="sport"
+            [ngValue]="sport.sportsId"
+          >
+            {{ sport.name }}
+          </option>
+        </select>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="d-flex justify-content-center my-5">
+  <button
+    class="btn btn-lg btn-warning"
+    *ngIf="readonly"
+    (click)="toggleEdit()"
+  >
+    Edit
+  </button>
+  <button
+    class="btn btn-lg btn-success"
+    *ngIf="!readonly"
+    (click)="updateTeam()"
+  >
+    Save
+  </button>
+</div>

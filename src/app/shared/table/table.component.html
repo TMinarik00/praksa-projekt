@@ -1,0 +1,35 @@
+<div class="d-flex table-scroll">
+  <table class="table table-bordered table-hover m-5">
+    <thead>
+      <tr>
+        <th *ngFor="let headItem of headArr">{{ headItem.Head }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let contentItem of contentArr">
+        <td *ngFor="let headItem of headArr">
+          <div *ngIf="headItem.Fieldname != ''">
+            {{ contentItem[headItem.FieldName] }}
+          </div>
+          <div
+            *ngIf="headItem.FieldName == ''"
+            class="d-flex justify-content-center"
+          >
+            <button
+              class="btn btn-success btn-md mx-1"
+              (click)="getDetails(contentItem)"
+            >
+              Details
+            </button>
+            <button
+              class="btn btn-danger btn-md mx-1"
+              (click)="deleteItem(contentItem)"
+            >
+              Delete
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

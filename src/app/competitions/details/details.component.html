@@ -1,0 +1,97 @@
+<div class="d-flex justify-content-center mx-8">
+  <form [formGroup]="competitionForm" class="w-100 form-border">
+    <h1 *ngIf="readonly">Competition Details</h1>
+    <h1 *ngIf="!readonly">Edit Competition</h1>
+
+    <!-- Competition Name -->
+    <div class="my-5">
+      <label>Competition Name</label>
+      <input
+        type="text"
+        formControlName="naziv"
+        class="form-control"
+        [readonly]="readonly"
+      />
+    </div>
+
+    <!-- Sport Name -->
+    <div class="my-5">
+      <label>Sport Name</label>
+      <!-- Sport Details -->
+      <div *ngIf="readonly">
+        <input
+          type="text"
+          formControlName="sportid"
+          class="form-control"
+          [readonly]="readonly"
+        />
+      </div>
+      <!-- Edit Sport -->
+      <div *ngIf="!readonly">
+        <select
+          type="text"
+          formControlName="sportid"
+          class="form-select"
+          aria-label="Default select"
+        >
+          <option value="">Select your option</option>
+          <option
+            *ngFor="let sport of sports"
+            value="sport"
+            [ngValue]="sport.sportsId"
+          >
+            {{ sport.name }}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Country Name -->
+    <div class="my-5">
+      <label>Country Name</label>
+      <div *ngIf="readonly">
+        <input
+          type="text"
+          formControlName="countryid"
+          class="form-control"
+          [readonly]="readonly"
+        />
+      </div>
+      <!-- COUNTRY EDIT -->
+      <div *ngIf="!readonly">
+        <select
+          type="text"
+          formControlName="countryid"
+          class="form-select"
+          aria-label="Default select"
+        >
+          <option value="">Select your option</option>
+          <option
+            *ngFor="let country of countries"
+            value="country"
+            [ngValue]="country.countryId"
+          >
+            {{ country.countryName }}
+          </option>
+        </select>
+      </div>
+    </div>
+  </form>
+</div>
+<!-- Edit/Save Buttons -->
+<div class="d-flex justify-content-center my-5">
+  <button
+    class="btn btn-lg btn-warning"
+    *ngIf="readonly"
+    (click)="editCompetition()"
+  >
+    Edit
+  </button>
+  <button
+    class="btn btn-lg btn-success"
+    *ngIf="!readonly"
+    (click)="updateCompetition()"
+  >
+    Save
+  </button>
+</div>

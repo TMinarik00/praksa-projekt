@@ -1,0 +1,29 @@
+<div class="d-flex justify-content-center mx-8">
+  <form [formGroup]="countryForm" class="w-100">
+    <div>
+      <label>Country Name</label>
+      <input
+        type="text"
+        formControlName="countryName"
+        class="form-control"
+        [readonly]="readonly"
+      />
+    </div>
+  </form>
+</div>
+<div class="d-flex justify-content-center my-4">
+  <button
+    class="btn btn-lg btn-warning"
+    *ngIf="readonly"
+    (click)="toggleEdit()"
+  >
+    Edit
+  </button>
+  <button
+    class="btn btn-lg btn-success"
+    *ngIf="!readonly"
+    (click)="updateCountry()"
+  >
+    Save
+  </button>
+</div>

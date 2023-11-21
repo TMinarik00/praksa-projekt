@@ -1,0 +1,54 @@
+<!-- Navigation -->
+<nav
+  class="navbar navbar-expand-lg navbar-dark bg-dark static-top d-flex p-0 shadow"
+>
+  <div class="container-fluid">
+    <ul class="navbar-nav p-10px">
+      <li class="nav-item">
+        <div
+          class="nav-link pointer dashboard-item p-10px"
+          [routerLink]="['/competitions/list']"
+          routerLinkActive="active"
+        >
+          Competitions
+        </div>
+      </li>
+      <li class="nav-item">
+        <div
+          class="nav-link pointer dashboard-item p-10px"
+          [routerLink]="['/drzave/list']"
+          routerLinkActive="active"
+        >
+          Countries
+        </div>
+      </li>
+      <li class="nav-item">
+        <div
+          class="nav-link pointer dashboard-item p-10px"
+          [routerLink]="['/events/list']"
+          routerLinkActive="active"
+        >
+          Events
+        </div>
+      </li>
+      <li class="nav-item">
+        <div
+          class="nav-link pointer dashboard-item p-10px"
+          [routerLink]="['/sports/list']"
+          routerLinkActive="active"
+        >
+          Sports
+        </div>
+      </li>
+      <li class="nav-item">
+        <div
+          class="nav-link pointer dashboard-item p-10px"
+          [routerLink]="['/timovi/list']"
+          routerLinkActive="active"
+        >
+          Teams
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>

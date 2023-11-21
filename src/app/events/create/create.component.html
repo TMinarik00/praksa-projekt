@@ -1,0 +1,53 @@
+<div class="d-flex justify-content-center mx-8">
+  <form [formGroup]="eventForm" class="w-100 bg-form">
+    <h1 class="my-4">Create Event</h1>
+
+    <div>
+      <label>Event Name</label>
+      <input type="text" class="form-control" formControlName="event_name" />
+    </div>
+
+    <div class="my-5">
+      <label>Event Start Time</label>
+      <input
+        type="text"
+        formControlName="event_start_time"
+        class="form-control"
+      />
+    </div>
+    <div class="my-5">
+      <label>Competition Name</label>
+      <select
+        type="text"
+        formControlName="competition_id"
+        class="form-select"
+        aria-label="Default select"
+      >
+        <option>Select your option</option>
+        <option
+          *ngFor="let competition of competitions"
+          value="competition"
+          [ngValue]="competition.id"
+          class=""
+        >
+          {{ competition.naziv }}
+        </option>
+      </select>
+    </div>
+
+    <div class="my-5">
+      <label>Event Key</label>
+      <input type="text" formControlName="eventkey" class="form-control" />
+    </div>
+
+    <div class="my-3 float-end">
+      <button
+        class="btn btn-primary"
+        (click)="createEvent()"
+        [disabled]="eventForm.invalid"
+      >
+        Create Team
+      </button>
+    </div>
+  </form>
+</div>

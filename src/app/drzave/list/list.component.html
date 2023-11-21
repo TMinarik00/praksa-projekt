@@ -1,0 +1,13 @@
+<!-- Header -->
+<div class="d-flex justify-content-between mt-4 mx-5">
+  <h2>Countries Table</h2>
+  <button class="btn btn-primary" (click)="onCreate()">Add Country</button>
+</div>
+
+<!-- Table -->
+<app-table
+  [headArr]="headItems"
+  [contentArr]="countries"
+  (detailsBtn)="getDetails($event)"
+  (deleteBtn)="deleteItem($event)"
+></app-table>
